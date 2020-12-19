@@ -22,16 +22,16 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        recipes: [...state.recipes, ...payload.recipes],
+        appointments: [...state.appointments, ...payload.appointments],
         page: payload.page,
-                amountPerPage: payload.amountPerPage
+        amountPerPage: payload.amountPerPage
 
       }
     case GET_APPOINTMENTS_SUCCESS:
       return {
         ...state,
         loading: false,
-        recipes: payload.recipes,
+        appointments: payload.appointments,
         page: payload.page,
         amountPerPage: payload.amountPerPage
       }
@@ -39,14 +39,14 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        recipe: payload
+        appointment: payload
       }
     case APPOINTMENTS_ERROR:
       return {
         ...state,
         loading: false,
-        recipes: null,
-        recipe: null,
+        appointments: null,
+        appointment: null,
         error: payload
       };
     case CLEAR_APPOINTMENTS_ERRORS:

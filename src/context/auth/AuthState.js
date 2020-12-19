@@ -76,8 +76,8 @@ const AuthState = props => {
     };
 
     try {
-      const res = await axios.post('/api/auth', formData, config);
-
+      const res = await axios.post('http://192.168.0.105:5001/api/login', formData, config);
+      console.log(res)
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data
@@ -85,6 +85,7 @@ const AuthState = props => {
 
       loadUser();
     } catch (error) {
+      console.error(error)
       dispatch({
         type: LOGIN_FAIL,
         payload: error.response.data.msg
