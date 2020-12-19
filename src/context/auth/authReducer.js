@@ -7,7 +7,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_ERRORS
-} from '../types';
+} from '../actionsTypes';
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
