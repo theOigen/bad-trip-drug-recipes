@@ -1,0 +1,46 @@
+.w-50 {
+	background-image: url('../../img/start.png');
+	background-size: cover;
+	background-position: center;
+	height: 50vh;
+	margin-top: 10vh;
+}
+
+.auth-screen {
+	height: auto;
+}
+
+.login-title {
+	font-size: 30pt;
+	font-weight: normal;
+}
+
+.login-navbar {
+	margin-bottom: 8vh;
+	padding-top: 10vh;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+* {
+	font-family:Inter!important;
+	position: inherit;
+}
+
+
+@media (min-width: 768px) { 
+	.login-navbar {
+		padding-top: 0vh;
+	}
+
+	.auth-screen {
+		height: 100vh;
+	}
+
+	.w-50 {
+		margin-top: 0px;
+    	height: auto;
+	}
+}
