@@ -1,0 +1,130 @@
+.navbar-text {
+    margin-left: auto!important;
+    color: #2C8BFF!important;
+}
+
+.welcome-row {
+    margin-top:40px;
+    padding: 0 10px;
+}
+
+.clickable {
+    cursor: pointer;   
+}
+
+.panel-heading div {
+	margin-top: -18px;
+	font-size: 15px;
+}
+
+.panel-heading div span {
+	margin-left:5px;
+}
+
+.panel-body{
+	display: none;
+}
+
+.panel {
+	border: 1px solid #E9E9E9;
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.panel-title {
+	padding: 1rem 1.8rem;
+    margin: 0px;
+    font-size: 24px;
+}
+
+.panel-footer {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 18px;
+}
+
+.table th, .table td {
+    padding: 1rem 1.8rem;
+    margin: 0px;
+}
+
+.table th {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 18px;
+
+	color: #9DA8B4;
+}
+
+.welcome-message {
+	font-size: 24px;
+}
+
+.navbar-row {
+    margin-top: 0px;
+	border-bottom: 1px solid #E9E9E9;
+}
+
+
+* {
+	font-family:Inter!important;
+	position: inherit;
+}
+
+.panel-footer {
+	margin-left: auto;
+	text-align: right;
+	padding: 1rem 1.8rem;
+	display: inline-block;
+	width: 100%;
+	border-top: 1px solid #E9E9E9;
+}
+
+.recipes-pagination-select, .meeting-pagination-select {
+	width: auto;
+	margin-left: 15px;
+}
+
+.welcome-form-control {
+    height: calc(1.7em);
+    padding: 0px;
+    display: inline-block;
+}
+
+.recipes-arrow-right, .meeting-arrow-right {
+	padding-left: 25px;
+}
+
+.recipes-pages-quantity, .meeting-pages-quantity {
+	padding: 0px 35px;
+}
+
+.table {
+    margin-bottom: 0rem;
+}
+
+.second-panel {
+	margin-bottom: 40px;
+}
+
+.navbar-button :hover{
+	background: rgba(44, 139, 255, 0.1);
+    border-radius: 8px;
+    padding: 7px 20px;
+}
+
+.navbar-link:hover {
+	text-decoration: none!important;
+}
+
+.welcome-form-group {
+    margin-bottom: 0rem;
+}
+
+.username {
+	font-weight: 500;
+}
