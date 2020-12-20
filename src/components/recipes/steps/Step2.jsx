@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import AuthContext from '../../../context/auth/authContext';
 
 
@@ -91,7 +92,7 @@ export const Step2 = ({ handleContinue }) => {
                 <div className="d-flex justify-content-end flex-wrap recipe-step1-buttons">
                   <div className="stepper-content py-3 first-step-content d-flex flex-row justify-content-end">
                     <div className="buttons-row">
-                      <button type="button" name="cancel" className="btn my-btn-secondary">Скасувати</button>
+                      <Link to="/"><button type="button" name="cancel" className="btn my-btn-secondary">Скасувати</button></Link>
                       <button type="button" name="continue" className="btn btn-primary" onClick={handleContinue}>Сформувати</button>
                     </div>
                   </div>

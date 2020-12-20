@@ -15,7 +15,7 @@ export const RecipeItem = ({recipe, deleteRecipe, openRecipeModal}) => {
       <td>{ patientName }</td>
                       <td>{patientMedcardNumber}</td>
       <td>{drugName }</td>
-                      <td>20.10.2020</td>
+                      <td>19.12.2020</td>
                       <td>
                         <a href="#" onClick={handleDelete}>
                           <img src={trash} alt="" />

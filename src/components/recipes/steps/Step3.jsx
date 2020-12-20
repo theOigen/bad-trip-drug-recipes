@@ -53,9 +53,10 @@ export const Step3 = () => {
                 const selectedValue = e.target.options[e.target.options.selectedIndex].innerText
 setDrugName(selectedValue)
                     }}>
-                        <option>Бісопролол</option>
-                        <option>Гєматогєн</option>
-                        <option>Презервативи Contex</option>
+                        <option>Бісопорол</option>
+                        <option>Інсулін</option>
+                        <option>Пертусин</option>
+                        <option>Доктор МОМ</option>
                     </select>
                   </div>
                   <div className="line-break"></div>
@@ -88,8 +89,6 @@ setDrugName(selectedValue)
                   </div>
                   <div className="line-break"></div>
                 </div>
-
-
                 <div className="d-flex justify-content-center flex-wrap recipe-step1-buttons">
                   <div className="stepper-content py-3 first-step-content d-flex flex-row justify-content-end">
                     <div className="buttons-row">
@@ -101,7 +100,7 @@ setDrugName(selectedValue)
                 <div className="d-flex justify-content-end flex-wrap recipe-step1-buttons">
                   <div className="stepper-content py-3 first-step-content d-flex flex-row justify-content-end">
                     <div className="buttons-row">
-                <button type="button" name="cancel" className="btn my-btn-secondary">Скасувати</button>
+                <Link to='/'><button type="button" name="cancel" className="btn my-btn-secondary">Скасувати</button></Link>
                 <Link to={{
                   pathname: '/sign-page',
                   state: {
