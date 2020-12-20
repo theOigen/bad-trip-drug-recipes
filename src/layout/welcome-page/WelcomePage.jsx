@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Appointments } from '../../components/appointments/Appointments'
 import { Recipes } from '../../components/recipes/Recipes'
+import { RecipeModal } from '../../components/recipes/RecipeModal'
 import AuthContext from '../../context/auth/authContext';
 import logo from '../../img/logo.png'
 import './styles_general.css'
@@ -212,77 +213,7 @@ case 4:
           </div>
 
         </div>
-
-        <div id="recipe-modal-1" className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={() => closeRecipeModal(1)}>&times;</span>
-            <div className="row my-row">
-                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
-                <div className="col-10 my-modal-header">
-                    Інформація про рецепт
-                </div>
-                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
-                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
-                <div className="col-10 col-sm-10 col-md-10 col-lg-10">
-                    <div className="modal-subtitle">
-                        <span>Дата виписки: 20.10.2020</span>
-                    </div>
-
-                    <div className="technical-info">
-                        Пацієнт
-                    </div>
-                    <div className="specific-info">
-                        Константинопольский К.К.
-                    </div>
-
-                    <div className="technical-info">
-                        Вік
-                    </div>
-                    <div className="specific-info">
-                        37 років
-                    </div>
-
-                    <div className="technical-info">
-                        Мобільний номер
-                    </div>
-                    <div className="specific-info">
-                        +38 (098) 658 26 50
-                    </div>
-
-                    <div className="technical-info">
-                        Номер медичної карти
-                    </div>
-                    <div className="specific-info">
-                        АМБ6234123
-                    </div>
-
-                    <div className="technical-info">
-                        Назва лікарського засобу
-                    </div>
-                    <div className="specific-info">
-                        Бісопролол
-                    </div>
-
-                    <div className="technical-info">
-                        Кількість лікарського засобу
-                    </div>
-                    <div className="specific-info">
-                        30 таблеток, 1 упаковка
-                    </div>
-
-                    <div className="technical-info">
-                        Застосування
-                    </div>
-                    <div className="specific-info footer">
-                        Закинути таблетку в рот, відразу пити багато води і проковтнути все разом
-                    </div>
-                </div>
-                
-            </div>
-
-          </div>
-
-        </div>
+      <RecipeModal />
     </div>
   )
 }

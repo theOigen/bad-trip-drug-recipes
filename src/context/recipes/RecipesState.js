@@ -23,6 +23,7 @@ import {
   UPDATE_RECIPE_SUCCESS,
   DELETE_RECIPE,
   DELETE_RECIPE_SUCCESS,
+  CLEAR_RECIPE
 } from '../actionsTypes';
 
 import {
@@ -84,7 +85,7 @@ const RecipesState = props => {
   const getRecipeById = async (id) => {
     dispatch({ type: GET_RECIPE_BY_ID })
     try {
-      const res = await axios.get(`/api/recipes/${id}`)
+      const res = await axios.get(`/api/Recipe/${id}`)
 
       res.data && dispatch({
         type: GET_RECIPE_BY_ID_SUCCESS,
@@ -96,6 +97,10 @@ const RecipesState = props => {
         payload: error
       })
     }
+  }
+
+  const clearRecipe = () => {
+    dispatch({type: CLEAR_RECIPE})
   }
 
   const createRecipe = async (recipe) => {
@@ -176,7 +181,8 @@ const RecipesState = props => {
         createRecipe,
         updateRecipe,
         deleteRecipe,
-        clearErrors
+        clearErrors,
+        clearRecipe
       }}
     >
       {props.children}

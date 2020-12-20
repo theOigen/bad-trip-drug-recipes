@@ -12,7 +12,8 @@
   DELETE_RECIPE,
   DELETE_RECIPE_SUCCESS,
   RECIPES_ERROR,
-  CLEAR_RECIPES_ERRORS
+  CLEAR_RECIPES_ERRORS,
+  CLEAR_RECIPE
 } from '../actionsTypes';
 
 const reducer = (state, { type, payload }) => {
@@ -76,6 +77,11 @@ const reducer = (state, { type, payload }) => {
         recipe: null,
         error: payload
       };
+    case CLEAR_RECIPE:
+      return {
+        ...state,
+        recipe: null
+      }
     case CLEAR_RECIPES_ERRORS:
       return {
         ...state,
