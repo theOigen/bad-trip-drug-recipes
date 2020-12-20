@@ -5,6 +5,7 @@ import PrivateRoute from './components/routing/PrivateRoute'
 import Main from './components/main/Main'
 import { Login } from './components/login/Login'
 import { WelcomePage } from './layout/welcome-page/WelcomePage'
+import { CreateRecipe } from './components/recipes/CreateRecipe'
 import AuthState from './context/auth/AuthState'
 import RecipesState from './context/recipes/RecipesState'
 import AppointmentsState from './context/appointments/AppointmentsState'
@@ -25,6 +26,7 @@ const App = () =>(
             <Switch>
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/' component={WelcomePage} />
+              <PrivateRoute exact path='/create-recipe' component={CreateRecipe} />
             </Switch>
           </Main>
         </Router>
