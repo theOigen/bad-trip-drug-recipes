@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<HTML>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Вітаємо - Homo!</title>
+
+        <link rel="shortcut icon" href="./img/logo_small.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.15.0/Inter (web)/inter.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/styles_general.css">
+
+    </head>
+
+    <body>
+        <div class="row navbar-row">
+            
+
+            <div class="col-1 col-sm-1 col-md-2 col-lg-2"></div>
+            <div class="col-10 col-sm-10 col-md-8 col-lg-8 navbar navbar-expand-lg">
+
+                
+                  <a href="/"><img src="./img/logo.png" height="20"class="d-inline-block align-top" alt=""></a>
+
+                  <div class="collapse navbar-collapse" id="navbarText">
+
+                    <div class="navbar-text navbar-button justify-content-right">
+                        <a class="navbar-link" href="#">
+                            Вийти
+                        </a>
+                    </div>
+                  </div>
+
+            </div>
+            <div class="col-1 col-sm-1 col-md-2 col-lg-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-1 col-sm-1 col-md-2 col-lg-2"></div>
+            <div class="col-10 col-sm-10 col-md-8 col-lg-8">
+                
+                <div class="welcome-message">
+                    Раді вас бачити, <span class="username">Іван Васильович!</span>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Зустрічі</h3>
+                        <div class="pull-right">
+                            <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                                <i class="glyphicon glyphicon-filter"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="dev-table">
+                            <thead>
+                                <tr>
+                                    <th>Дата</th>
+                                    <th>Час</th>
+                                    <th>Пацієнт</th>
+                                    <th>Формат</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>20.10.2020</td>
+                                    <td>13:00</td>
+                                    <td>Константинопольский К.К.</td>
+                                    <td>Онлайн</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                    <div class="panel-footer">
+                        <div class="form-group">
+                            Рядків на сторінці
+                            <select class="form-control meeting-pagination-select">
+                                <option>5</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>25</option>
+                                <option>50</option>
+                            </select>
+                            <span class="meeting-pages-quantity">
+                                1-5 з 200
+                            </span>
+                            <a href="#"><img src="./img/arrow-left.svg" class = "meeting-arrow-left"></a>
+                            <a href="#"><img src="./img/arrow-right.svg" class = "meeting-arrow-right"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary second-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Рецепти</h3>
+                        <div class="pull-right">
+                            <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                                <i class="glyphicon glyphicon-filter"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="dev-table">
+                            <thead>
+                                <tr>
+                                    <th>Пацієнт</th>
+                                    <th>Номер мед.карти</th>
+                                    <th>Препарати</th>
+                                    <th>Дата виписки</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Іванов І.Г.</td>
+                                    <td>АМБ6234152</td>
+                                    <td>аспірін кардіо</td>
+                                    <td>20.10.2020</td>
+                                    <td><a href="#"><img src="./img/trash.svg" alt=""></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                    <div class="panel-footer">
+                        <div class="form-group">
+                            Рядків на сторінці
+                            <select class="form-control recipes-pagination-select">
+                                <option>5</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>25</option>
+                                <option>50</option>
+                            </select>
+                            <span class="recipes-pages-quantity">
+                                1-5 з 200
+                            </span>
+                            <a href="#"><img src="./img/arrow-left.svg" class = "recipes-arrow-left"></a>
+                            <a href="#"><img src="./img/arrow-right.svg" class = "recipes-arrow-right"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </body
+></HTML>

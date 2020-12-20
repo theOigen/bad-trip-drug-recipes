@@ -1,12 +1,91 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react';
+import { Appointments } from '../../components/appointments/Appointments'
+import { Recipes } from '../../components/recipes/Recipes'
+import AuthContext from '../../context/auth/authContext';
 import logo from '../../img/logo.png'
-import arrowLeft from '../../img/arrow-left.svg'
-import arrowRight from '../../img/arrow-right.svg'
 import './styles_general.css'
 
 export const WelcomePage = () => {
-  return (
-    <>
+  const authContext = useContext(AuthContext);
+
+  const { logout, user } = authContext
+
+  const handleLogout = (e) => {
+    e.preventDefault()
+    logout()
+  }
+
+  let currentModal;
+  window.onclick = function(event) {
+    const modal = document.getElementById("modal-" + currentModal);
+
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  const openModal = (num, indexOfMeeting) => {
+    currentModal = num;
+    const modal = document.getElementById("modal-" + num);
+    if (modal) {
+      modal.style.display = "block";
+      switch (indexOfMeeting) {
+        case 0:
+          document.getElementById(`${num}MEETING_date`).innerText = 'Неділя, 20 грудня'
+          document.getElementById(`${num}MEETING_time`).innerText = '13:00 - 13:30'
+          document.getElementById(`${num}MEETING_patient`).innerText = 'Попенко Д.В.'
+          document.getElementById(`${num}FOOTER_patient`).innerText = 'Хто створив: Попенко Д.В.'
+          break;
+        case 1:
+          document.getElementById(`${num}MEETING_date`).innerText = 'Неділя, 20 грудня'
+          document.getElementById(`${num}MEETING_time`).innerText = '13:30 - 14:00'
+          document.getElementById(`${num}MEETING_patient`).innerText = 'Заяць Є.Є.'
+          document.getElementById(`${num}FOOTER_patient`).innerText = 'Хто створив: Заяць Є.Є.'
+          break;
+        case 2:
+          document.getElementById(`${num}MEETING_date`).innerText = 'Понеділок, 21 грудня'
+          document.getElementById(`${num}MEETING_time`).innerText = '13:00 - 13:30'
+          document.getElementById(`${num}MEETING_patient`).innerText = 'Ільїн М.О.'
+          document.getElementById(`${num}FOOTER_patient`).innerText = 'Хто створив: Ільїн М.О.'
+          break;
+        case 3:
+          document.getElementById(`${num}MEETING_date`).innerText = 'Понеділок, 21 грудня'
+          document.getElementById(`${num}MEETING_time`).innerText = '14:30 - 15:00'
+          document.getElementById(`${num}MEETING_patient`).innerText = 'Гребініченко М.В.'
+          document.getElementById(`${num}FOOTER_patient`).innerText = 'Хто створив: Гребініченко М.В.'
+          break;
+case 4:
+          document.getElementById(`${num}MEETING_date`).innerText = 'Вівторок, 22 грудня'
+          document.getElementById(`${num}MEETING_time`).innerText = '14:00 - 14:30'
+          document.getElementById(`${num}MEETING_patient`).innerText = 'Лук`янець М.О.'
+          document.getElementById(`${num}FOOTER_patient`).innerText = 'Хто створив: Лук`янець М.О.'
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  const closeModal = (num) => {
+    const modal = document.getElementById("modal-" + num);
+    if (modal)
+      modal.style.display = "none";
+  }
+
+  const openRecipeModal = (num) => {
+    const modal = document.getElementById("recipe-modal-" + num);
+    if (modal)
+      modal.style.display = "block";
+  }
+
+  const closeRecipeModal = (num) => {
+    const modal = document.getElementById("recipe-modal-" + num);
+    if (modal)
+      modal.style.display = "none";
+  }
+
+  return user && (
+    <div className="welcome-body">
       <div className="welcome-row row navbar-row">
         <div className="col-1 col-sm-1 col-md-2 col-lg-2"></div>
         <div className="col-10 col-sm-10 col-md-8 col-lg-8 navbar navbar-expand-lg">
@@ -15,7 +94,11 @@ export const WelcomePage = () => {
           </a>
           <div className="collapse navbar-collapse" id="navbarText">
             <div className="navbar-text navbar-button justify-content-right">
-              <a className="navbar-link" href="#">
+              <a
+                className="navbar-link"
+                href="#"
+                onClick={handleLogout}
+              >
                 Вийти
               </a>
             </div>
@@ -27,121 +110,179 @@ export const WelcomePage = () => {
         <div className="col-1 col-sm-1 col-md-2 col-lg-2"></div>
         <div className="col-10 col-sm-10 col-md-8 col-lg-8">
           <div className="welcome-message">
-            Раді вас бачити,
-            <span className="username">Іван Васильович!</span>
+            Раді вас бачити, 
+            <span className="username">{' ' + user.fullName}!</span>
           </div>
-          <div className="panel panel-primary">
-            <div className="panel-heading">
-              <h3 className="panel-title">Зустрічі</h3>
-              <div className="pull-right">
-                <span className="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-                  <i className="glyphicon glyphicon-filter"></i>
-                </span>
-              </div>
-            </div>
-            <div className="panel-body"></div>
-            <div className="table-responsive">
-              <table className="table table-hover" id="dev-table">
-                <thead>
-                  <tr>
-                    <th>Дата</th>
-                    <th>Час</th>
-                    <th>Пацієнт</th>
-                    <th>Формат</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>20.10.2020</td>
-                    <td>13:00</td>
-                    <td>Константинопольский К.К.</td>
-                    <td>Онлайн</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="panel-footer">
-              <div className="welcome-form-group">
-                Рядків на сторінці
-                <select className="welcome-form-control meeting-pagination-select">
-                  <option>5</option>
-                  <option>10</option>
-                  <option>15</option>
-                  <option>25</option>
-                  <option>50</option>
-                </select>
-                <span className="meeting-pages-quantity">
-                  1-5 з 200
-                  </span>
-                <a href="#">
-                  <img src={arrowLeft} className="meeting-arrow-left" />
-                </a>
-                <a href="#">
-                  <img src={arrowRight} className="meeting-arrow-right" />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="panel panel-primary second-panel">
-            <div className="panel-heading">
-              <h3 className="panel-title">Рецепти</h3>
-                <div className="pull-right">
-                  <span className="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-                    <i className="glyphicon glyphicon-filter"></i>
-                  </span>
-                </div>
-            </div>
-            <div className="panel-body"></div>
-              <div className="table-responsive">
-                <table className="table table-hover" id="dev-table">
-                  <thead>
-                    <tr>
-                      <th>Пацієнт</th>
-                      <th>Номер мед.карти</th>
-                      <th>Препарати</th>
-                      <th>Дата виписки</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Іванов І.Г.</td>
-                      <td>АМБ6234152</td>
-                      <td>аспірін кардіо</td>
-                      <td>20.10.2020</td>
-                      <td>
-                        <a href="#">
-                          <img src="./img/trash.svg" alt="" />
-                        </a>
-                      </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="panel-footer">
-              <div className="welcome-form-group">
-                Рядків на сторінці
-                <select className="welcome-form-control recipes-pagination-select">
-                  <option>5</option>
-                  <option>10</option>
-                  <option>15</option>
-                  <option>25</option>
-                  <option>50</option>
-                </select>
-                <span className="recipes-pages-quantity">
-                  1-5 з 200
-                  </span>
-                <a href="#">
-                  <img src={arrowLeft} className="recipes-arrow-left" />
-                </a>
-                <a href="#">
-                  <img src={arrowRight} className="recipes-arrow-right" />
-                </a>
-              </div>
-            </div>
-          </div>
+          <Appointments openModal={openModal} />
+          <Recipes openRecipeModal={openRecipeModal} />
         </div>
       </div>
-    </>
+      <div id="modal-1" className="modal">
+
+          <div className="modal-content">
+            <span className="close" onClick={() => closeModal(1)}>&times;</span>
+            <div className="row my-row">
+                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-10 my-modal-header">
+                    Онлайн зустріч
+                </div>
+                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-10 col-sm-10 col-md-10 col-lg-10">
+                    <div className="modal-subtitle">
+                        <span id="1MEETING_date">Понеділок, 21 грудня</span> • <span id="1MEETING_time">13:00 - 13:30</span>
+                    </div>
+
+                    <div className="technical-info">
+                        Пацієнт
+                    </div>
+                    <div id="1MEETING_patient" className="specific-info">
+                        Константинопольский К.К.
+                    </div>
+
+                    <div className="technical-info">
+                        Мобільний номер
+                    </div>
+                    <div id="1MEETING_phone" className="specific-info">
+                        +38 (098) 658 26 50
+                    </div>
+
+                    <div className="technical-info">
+                        Номер медичної карти
+                    </div>
+                    <div id="1MEETING_medcard" className="specific-info">
+                        АМБ6234123
+                    </div>
+                    <button type="button" name="continue" className="btn btn-primary btn-100">Приєднатися до конференції</button>
+
+                    <div id="1FOOTER_patient" className="footer">
+                        Хто створив: Константинопольский К.К.
+                    </div>
+                </div>
+                
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="modal-2" className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={() => closeModal(2)}>&times;</span>
+            <div className="row my-row">
+                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-10 my-modal-header">
+                    Особиста зустріч
+                </div>
+                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-10 col-sm-10 col-md-10 col-lg-10">
+                    <div className="modal-subtitle">
+                        <span id="2MEETING_date">Понеділок, 21 грудня</span> • <span id="2MEETING_time">15:00 - 15:30</span>
+                    </div>
+
+                    <div className="technical-info">
+                        Пацієнт
+                    </div>
+                    <div id="2MEETING_patient" className="specific-info">
+                        Запольський Е.Т.
+                    </div>
+
+                    <div className="technical-info">
+                        Мобільний номер
+                    </div>
+                    <div id="2MEETING_phone" className="specific-info">
+                        +38 (098) 658 26 50
+                    </div>
+
+                    <div className="technical-info">
+                        Номер медичної карти
+                    </div>
+                    <div id="2MEETING_medcard" className="specific-info">
+                        АМБ6234123
+                    </div>
+
+                    <div id="2FOOTER_patient"  className="footer">
+                        Хто створив: Запольський Е.Т.
+                    </div>
+                </div>
+                
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="recipe-modal-1" className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={() => closeRecipeModal(1)}>&times;</span>
+            <div className="row my-row">
+                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-10 my-modal-header">
+                    Інформація про рецепт
+                </div>
+                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-1 col-sm-1 col-md-1 col-lg-1"></div>
+                <div className="col-10 col-sm-10 col-md-10 col-lg-10">
+                    <div className="modal-subtitle">
+                        <span>Дата виписки: 20.10.2020</span>
+                    </div>
+
+                    <div className="technical-info">
+                        Пацієнт
+                    </div>
+                    <div className="specific-info">
+                        Константинопольский К.К.
+                    </div>
+
+                    <div className="technical-info">
+                        Вік
+                    </div>
+                    <div className="specific-info">
+                        37 років
+                    </div>
+
+                    <div className="technical-info">
+                        Мобільний номер
+                    </div>
+                    <div className="specific-info">
+                        +38 (098) 658 26 50
+                    </div>
+
+                    <div className="technical-info">
+                        Номер медичної карти
+                    </div>
+                    <div className="specific-info">
+                        АМБ6234123
+                    </div>
+
+                    <div className="technical-info">
+                        Назва лікарського засобу
+                    </div>
+                    <div className="specific-info">
+                        Бісопролол
+                    </div>
+
+                    <div className="technical-info">
+                        Кількість лікарського засобу
+                    </div>
+                    <div className="specific-info">
+                        30 таблеток, 1 упаковка
+                    </div>
+
+                    <div className="technical-info">
+                        Застосування
+                    </div>
+                    <div className="specific-info footer">
+                        Закинути таблетку в рот, відразу пити багато води і проковтнути все разом
+                    </div>
+                </div>
+                
+            </div>
+
+          </div>
+
+        </div>
+    </div>
   )
 }
