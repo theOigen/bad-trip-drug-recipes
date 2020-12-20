@@ -6,11 +6,17 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  CLEAR_ERRORS
+  CLEAR_ERRORS,
+  FETCH_PATIENT_BY_NUMBER
 } from '../actionsTypes';
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
+    case FETCH_PATIENT_BY_NUMBER:
+      return {
+        ...state,
+        patient: payload
+      }
     case USER_LOADED:
       return {
         ...state,

@@ -11,7 +11,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  CLEAR_ERRORS
+  CLEAR_ERRORS,
+  FETCH_PATIENT_BY_NUMBER
 } from '../actionsTypes';
 
 const AuthState = props => {
@@ -20,10 +21,24 @@ const AuthState = props => {
     isAuthenticated: false,
     loading: true,
     user: null,
-    error: null
+    error: null,
+    patient: null
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
+
+  const fetchPatientByNumber = async (phoneNumber) => {
+    try {
+      const res = await axios.get(`/api/patients?phone=${phoneNumber}`)
+
+      dispatch({
+        type: FETCH_PATIENT_BY_NUMBER,
+        payload: res.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   // Load User
   const loadUser = async () => {
@@ -110,7 +125,9 @@ const AuthState = props => {
         loading: state.loading,
         user: state.user,
         error: state.error,
+        patient: state.patient,
         register,
+        fetchPatientByNumber,
         loadUser,
         login,
         logout,

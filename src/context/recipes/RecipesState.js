@@ -111,7 +111,7 @@ const RecipesState = props => {
       }
     };
     try {
-      const res = await axios.post('/api/recipes', recipe, config)
+      const res = await axios.post('/api/recipe', recipe, config)
 
       res.data && dispatch({
         type: CREATE_RECIPE_SUCCESS,

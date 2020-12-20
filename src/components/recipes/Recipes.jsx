@@ -64,7 +64,7 @@ export const Recipes = ({openRecipeModal}) => {
                         <div className="row my-row">
                             <div className="col-6 recipe-panel-header">Рецепти</div>
                             <div className="col-6 add-recipe my-auto">
-                                <Link to="/lol"><button type="button" name="continue" className="btn btn-primary">Виписати рецепт</button></Link>
+                                <Link to="/create-recipe"><button type="button" name="continue" className="btn btn-primary">Виписати рецепт</button></Link>
                             </div>
                         </div>                        
                     </div>

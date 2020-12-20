@@ -51,7 +51,6 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        recipes: [...state.recipes, payload]
       }
     case UPDATE_RECIPE_SUCCESS:
       return {

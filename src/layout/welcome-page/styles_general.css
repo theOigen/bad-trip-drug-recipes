@@ -1,3 +1,12 @@
+.medcine-pagination-select,
+.medcine-quantity,
+.medcine-usage
+{
+	padding: 0px 10px;
+	width: 56vw;
+	height: calc(1.5em + .75rem + 2px);
+}
+
 .navbar-text {
     margin-left: auto!important;
     color: #2C8BFF!important;
@@ -10,6 +19,214 @@
 
 .clickable {
     cursor: pointer;   
+}
+#step .form-control {
+padding: 0px 10px;
+	width: 25vw;	
+	height: calc(1.5em + .75rem + 2px);
+}
+#step3 .form-control {
+padding: 0px 10px;
+	height: calc(1.5em + .75rem + 2px);
+}
+.patient-initials,
+.patient-med-card, 
+.patient-age {
+	padding: 0px 10px;
+	width: 25vw;
+}
+.stepper:not(.stepper-vertical) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.stepper {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    overflow: hidden;
+    -webkit-transition: height .2s ease-in-out;
+    transition: height .2s ease-in-out;
+}
+
+.stepper:not(.stepper-vertical) .stepper-step {
+    -webkit-box-flex: 1;
+    -ms-flex: auto;
+    flex: auto;
+    height: 4.5rem;
+}
+
+.stepper:not(.stepper-vertical) .stepper-step:first-child .stepper-head {
+    padding-left: 1.5rem;
+}
+
+.stepper-head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-decoration: none;
+    color: unset;
+    line-height: 1.3;
+    cursor: pointer;
+}
+
+
+.stepper-head-icon {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #8B9AA9;
+    background-color:  #F9FAFB;
+    border-radius: 100%;
+    font-size: .875rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.stepper:not(.stepper-vertical) .stepper-head-icon {
+    margin: 1.5rem .5rem 1.5rem 0;
+}
+
+.stepper-active .stepper-head-icon {
+    background-color: #2C8BFF;
+}
+
+.stepper-head-text-active {
+    color: #2C8BFF;
+}
+
+.stepper-head-icon, .stepper-head-text:after {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.stepper-active .stepper-head-text {
+    font-weight: 500;
+    color: #2C8BFF;
+}
+
+.stepper-active .stepper-head-icon {
+    color: #fff;
+}
+
+.stepper-head-text {
+    color: #8B9AA9;
+}
+
+
+.stepper:not(.stepper-vertical) .stepper-step:not(:last-child) .stepper-head:after {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 1px;
+    width: 100%;
+    margin-left: .5rem;
+    content: "";
+    background-color: rgba(0,0,0,.1);
+}
+
+.stepper:not(.stepper-vertical) .stepper-content {
+    position: absolute;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.stepper-content {
+    left: 0;
+}
+
+.stepper-head:hover {
+    background-color: #dbdbdb;
+}
+
+.stepper:not(.stepper-vertical) .stepper-step:not(:first-child) .stepper-head:before {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 1px;
+    width: 100%;
+    margin-right: .5rem;
+    content: "";
+    background-color: rgba(0,0,0,.1);
+}
+
+.recipes-pagination-select, .meeting-pagination-select {
+	width: auto;
+	margin-left: 15px;
+}
+
+.recipes-arrow-right, .meeting-arrow-right {
+	padding-left: 25px;
+}
+
+.recipes-pages-quantity, .meeting-pages-quantity {
+	padding: 0px 35px;
+}
+
+.recipe-label {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 18px;
+}
+
+.recipe-step1-user-number,
+.recipe-step1-buttons {
+    padding: 0 40px;
+}
+
+.recipe-key,
+.recipe-password {
+	width: 56vw;
+	padding: 0px 10px;
+}
+
+.line-break {
+  width: 100%;
+}
+
+.patient-phone-number {
+	width: 25vw;
+}
+
+.my-form-control {
+	height: calc(1.5em + .75rem + 2px);
+	padding: 0px;
+    display: inline-block;
+}
+
+.recipe-card {
+	background: #FFFFFF;
+	border: 1px solid #F9FAFB;
+	box-sizing: border-box;
+	box-shadow: 0px 2px 6px rgba(17, 53, 97, 0.05);
+	border-radius: 12px;
+}
+
+.my-btn-secondary {
+	color: #007bff;
+	background-color: #fff;
+}
+
+
+.my-card-header {
+	font-size: 24px;
+	text-align: center;
+	font-weight: 500;
 }
 
 .panel-heading div {
