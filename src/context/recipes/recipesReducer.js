@@ -1,4 +1,4 @@
-import {
+  import {
   GET_RECIPES,
   GET_RECIPES_SUCCESS,
   GET_MORE_RECIPES,
@@ -32,17 +32,13 @@ const reducer = (state, { type, payload }) => {
         ...state,
         loading: false,
         recipes: [...state.recipes, ...payload.recipes],
-        page: payload.page,
-                amountPerPage: payload.amountPerPage
-
       }
     case GET_RECIPES_SUCCESS:
       return {
         ...state,
         loading: false,
         recipes: payload.recipes,
-        page: payload.page,
-        amountPerPage: payload.amountPerPage
+        totalAmount: payload.totalRows
       }
     case GET_RECIPE_BY_ID_SUCCESS:
       return {

@@ -2,12 +2,12 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import logo from '../../img/logo.png'
-import"./styles.css"
+import "./styles.css"
 
 export const Login = () => {
   const authContext = useContext(AuthContext);
 
-  const { login, error, clearErrors, isAuthenticated } = authContext
+  const { login, error, clearErrors, loading, isAuthenticated } = authContext
 
   useEffect(() => {
     if (error === 'Invalid credentials') {
@@ -18,11 +18,11 @@ export const Login = () => {
   }, [error, isAuthenticated]);
 
   const [user, setUser] = useState({
-    email: '',
+    username: '',
     password: ''
   });
 
-  const { email, password } = user;
+  const { username, password } = user;
 
   const onChange = e => {
     setUser({
@@ -33,14 +33,15 @@ export const Login = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    if (email === '' || password === '') {
+    if (username === '' || password === '') {
       // setAlert('Please enter all fields', 'danger');
     } else {
       login(user);
     }
   };
 
-  if (isAuthenticated) return <Redirect to='/' />;
+  if (isAuthenticated || (loading && !isAuthenticated))
+    return <Redirect to='/' />;
 
   return (
     <div className='row auth-screen'>
@@ -56,10 +57,10 @@ export const Login = () => {
             <div className="form-group">
               <label>Логін</label>
               <input
-                name="email"
+                name="username"
                 required
                 className="form-control"
-                value={email}
+                value={username}
                 onChange={onChange}
                 placeholder="Введіть логін"
                 type="email" />

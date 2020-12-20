@@ -30,7 +30,7 @@ const AuthState = props => {
     setAuthToken(localStorage.jwt);
 
     try {
-      const res = await axios.get('/api/auth');
+      const res = await axios.get('/api/login');
       dispatch({
         type: USER_LOADED,
         payload: res.data
@@ -76,16 +76,15 @@ const AuthState = props => {
     };
 
     try {
-      const res = await axios.post('http://192.168.0.105:5001/api/login', formData, config);
-      console.log(res)
-      dispatch({
+      const res = await axios.post('/api/login', formData, config);
+      
+      res.data && dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data
       });
 
       loadUser();
     } catch (error) {
-      console.error(error)
       dispatch({
         type: LOGIN_FAIL,
         payload: error.response.data.msg

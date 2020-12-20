@@ -36,18 +36,19 @@ const RecipesState = props => {
     recipe: null,
     page: DEFAULT_PAGE,
     amountPerPage: DEFAULT_AMOUNT_PER_PAGE,
+    totalAmount: 0,
     loading: false,
     error: null
   };
 
   const [state, dispatch] = useReducer(recipesReducer, initialState);
 
-  const getRecipes = async (page, amountPerPage) => {
+  const getRecipes = async (page = DEFAULT_PAGE, amountPerPage = DEFAULT_AMOUNT_PER_PAGE) => {
     dispatch({
       type: GET_RECIPES
     })
     try {
-      const res = await axios.get(`/api/recipes?p=${page}&n=${amountPerPage}`)
+      const res = await axios.get(`/api/recipe?PageSize=${amountPerPage}&PageNumber=${page}`)
 
       res.data && dispatch({
         type: GET_RECIPES_SUCCESS,
@@ -61,7 +62,7 @@ const RecipesState = props => {
     }
   }
 
-  const getMoreRecipes = async (page, amountPerPage) => {
+  const getMoreRecipes = async (page = DEFAULT_PAGE, amountPerPage = DEFAULT_AMOUNT_PER_PAGE) => {
     dispatch({
       type: GET_MORE_RECIPES
     })
@@ -148,7 +149,7 @@ const RecipesState = props => {
   const deleteRecipe = async (id) => {
     dispatch({ type: DELETE_RECIPE })
     try {
-      await axios.delete(`/api/recipes/${id}`)
+      await axios.delete(`/api/recipe/${id}`)
       dispatch({
         type: DELETE_RECIPE_SUCCESS,
         payload: id
